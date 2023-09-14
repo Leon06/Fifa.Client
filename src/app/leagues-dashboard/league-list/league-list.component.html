@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4 display-4">Ligas del mundo</h2>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" class="text-center">#</th>
+                <th scope="col" class="text-center">Liga</th>
+                <th scope="col" class="text-center">Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let league of leagues; let i = index">
+                <th scope="row" class="text-center vertical-center">{{ i + 1 }}</th>
+                <td class="text-center">
+                    {{ league.name }}
+                    <br>
+                    <img [src]="league.emblem" alt="{{ league.name }} Logo" class="img-fluid" style="max-width: 100px; height: auto;"> 
+                </td>
+                <td class="text-center vertical-center">
+                    <button class="btn btn-primary" (click)="onLeagueClick(league.code, league.name)">Ver equipos</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

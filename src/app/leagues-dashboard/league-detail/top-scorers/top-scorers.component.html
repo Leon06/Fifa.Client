@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  
+  <!-- Goleador del equipo -->
+  <div class="alert alert-info" role="alert">
+      <h4 class="alert-heading">Goleador de la liga</h4>
+      <p><b>{{ topScorer?.player?.name }}</b> pertenece al equipo {{ topScorer?.team?.name }} con {{ topScorer?.goals }} goles.</p>
+      <hr>
+      <p class="mb-0">¡Felicidades!</p>
+  </div>
+    
+  <!-- Tabla de todos los jugadores -->
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Equipo</th>        
+        <th>Nacionalidad</th>      
+        <th>Goles</th>
+        
+      </tr>
+    </thead>
+    <tbody>    
+      <tr *ngFor="let playerData of scorers">
+        <td>{{ playerData.player.name }}</td>
+        <td>{{ playerData.team.name }}</td>       
+        <td>{{ playerData.player.nationality }}</td>        
+        <td>{{ playerData.goals }}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  
+

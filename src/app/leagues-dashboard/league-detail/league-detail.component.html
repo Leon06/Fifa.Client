@@ -1,0 +1,56 @@
+<div class="container mt-5" *ngIf="showTeams">    
+    <h1 class="mb-3 text-center">Equipos {{leagueName}}</h1>
+    <div class="d-flex justify-content-center align-items-center mb-2">      
+      <button class="btn btn-success shadow-sm ml-2 px-5" (click)="seeScorers()">Ver Goleadores</button>
+    </div>  
+    <table class="table table-bordered table-striped custom-table">
+      <thead>
+        <tr>
+          <th>Logo</th>
+          <th>Nombre del Equipo</th>
+          <th>Sitio Web</th>
+          <th>Año de Fundación</th>
+          <th>Ver Jugadores</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of detailLeague">
+          <td><img [src]="team.crest" alt="Logo del equipo" width="50"></td>
+          <td>{{ team.name }}</td>
+          <td><a [href]="team.website" target="_blank">{{ team.website }}</a></td>
+          <td>{{ team.founded }}</td>  
+          <td><button class="btn btn-primary" (click)="showPlayers(team)">Ver Jugadores</button></td>                
+        </tr>
+      </tbody>
+    </table>     
+</div>
+
+<div *ngIf="!showTeams" class="container mt-5 col-lg-6 col-md-8 mx-auto">
+  <div class="d-flex align-items-center mb-3">
+    <button class="btn btn-success mr-auto px-1 py-0" (click)="backToTeams()">Volver a Equipos</button>
+    <h2 class="mb-0 mx-auto">Jugadores</h2>
+  </div>
+  <table class="table table-sm table-bordered table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th class="text-center">Nombre</th>
+        <th class="text-center">Nacionalidad</th>
+        <th class="text-center">Posición</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of selectedPlayers">
+        <td class="text-center">{{ player.name }}</td>
+        <td class="text-center">{{ player.nationality }}</td>
+        <td class="text-center">{{ player.position ? player.position: '--' }}</td>                  
+      </tr>
+    </tbody>
+  </table>
+  <div class="d-flex align-items-center mb-3">
+    <button class="btn btn-success mr-auto px-1 py-0" (click)="backToTeams()">Volver a Equipos</button>
+  </div>
+  <br>
+</div>
+
+
